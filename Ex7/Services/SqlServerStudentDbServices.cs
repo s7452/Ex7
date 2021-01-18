@@ -194,5 +194,20 @@ namespace Ex7.Services
                 com.ExecuteNonQuery();
             }
         }
+
+        public void setRefreshToken(string refToken, string index)
+        {
+            using (var con = sqlcon)
+            using (var com = new SqlCommand())
+            {
+
+                com.Connection = con;
+                com.CommandText = $"UPDATE Student SET refreshToken = @refeshToken WHERE indexNumber=@id";
+                com.Parameters.AddWithValue("id", index);
+                com.Parameters.AddWithValue("refreshToken", refToken);
+                con.Open();
+                var dr = com.ExecuteReader();
+            }
+        }
     }
 }

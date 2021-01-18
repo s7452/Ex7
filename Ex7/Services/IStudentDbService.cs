@@ -14,5 +14,6 @@ namespace Ex7.Services
         Student GetStudent(string index);
         void EnrollStudent(EnrollStudentRequest request);
         void PromoteStudnet(int semester, string studies);
+        void setRefreshToken(string refToken);
     }
 }

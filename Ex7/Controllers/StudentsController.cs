@@ -113,7 +113,15 @@ namespace Ex7.Controllers
             {
                 return NotFound("Zły login lub hasło");
             }
+           
+        }
 
+        [HttpPost("refesh-token/{token}")]
+        public IActionResult RefreshToken(string refToken)
+        {
+
+            _dbService.setRefreshToken(refToken);
+            return Ok();
         }
     }
 }
